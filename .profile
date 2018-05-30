@@ -17,6 +17,9 @@ alias allids="docker ps -aq"
 alias di="docker images"
 alias drmi="docker rmi"
 alias dnone="docker images | grep '^<none>' | awk '{print \$3}'"
+alias dprune="drmi \$(di -q -f dangling=true)"
+# I like drmi $(di -q -f dangling=true)
+alias dni="docker network inspect"
 
 ### Config Files
 alias prof="vim ~/.bashrc"
@@ -30,6 +33,7 @@ alias bund="cd ~/.vim/bundle"
 alias desk="cd ~/Desktop; ls"
 #c
 ### Shortcuts ###
+alias c="clear"
 alias h="history"
 alias nggo="nginx -t && nginx -s reload"
 alias findp="ps aux | ag"
