@@ -19,9 +19,8 @@ alias drmi="docker rmi"
 alias dnone="docker images | grep '^<none>' | awk '{print \$3}'"
 
 ### Config Files
-alias prof="vim ~/.zshrc"
-alias reprof="source ~/.zshrc"
-alias styleatom="vim ~/.atom/styles.less"
+alias prof="vim ~/.bashrc"
+alias reprof="source ~/.bashrc"
 alias tconfig="vim ~/.tmux.conf"
 alias vimvim="vim ~/.vimrc"
 alias windows="vim ~/.hammerspoon/init.lua"
@@ -46,6 +45,14 @@ alias tree="tree -I target -I node_modules"
 alias tmux="tmux -2"
 alias pcp="tr -d '\n' | pbcopy" # use this just like pbcopy EXCEPT that it will remove that stupid \n
 alias cpd="pwd | pcp"
+alias egrep="egrep --color=auto"
+alias fgrep="fgrep --color=auto"
+alias grep="grep --color=auto"
+alias l="ls -CF"
+alias la="ls -A"
+alias ll="ls -alF"
+alias ls="ls -GFh"
+alias attach="tmux attach -t avserv"
 
 ## a quick way to get out of current directory ##
 alias ..='cd ..'
@@ -53,3 +60,5 @@ alias ...='cd ../../../'
 alias ....='cd ../../../../'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
+
+
