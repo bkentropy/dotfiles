@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dotfiles=(".vimrc" ".bashrc" ".tmux.conf" ".hammerspoon/init.lua")
+dotfiles=(".vimrc" ".profile" ".tmux.conf" ".hammerspoon/init.lua")
 dir="${HOME}/dotfiles"
 
 for dotfile in "${dotfiles[@]}";do
