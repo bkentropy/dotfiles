@@ -1,13 +1,6 @@
 export EDITOR="vim"
 export HOMEBREW_CASK_OPTS="--caskroom=/opt/homebrew-cask/Caskroom"
 
-# These are pretty cool!
-# set -o vi
-# set -o emacs
-
-# Set Vi-Mode
-bindkey -v
-
 ### Docker tricks
 alias dco="docker-compose"
 alias dps="docker ps"
@@ -22,8 +15,8 @@ alias dprune="drmi \$(di -q -f dangling=true)"
 alias dni="docker network inspect"
 
 ### Config Files
-alias prof="vim ~/.bashrc"
-alias reprof="source ~/.bashrc"
+alias prof="vim ~/.profile"
+alias reprof="source ~/.profile"
 alias tconfig="vim ~/.tmux.conf"
 alias vimvim="vim ~/.vimrc"
 alias windows="vim ~/.hammerspoon/init.lua"

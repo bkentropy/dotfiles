@@ -1,9 +1,9 @@
 #!/bin/bash
 
-dotfiles=(".vimrc" ".profile" ".tmux.conf" ".hammerspoon/init.lua")
+dotfiles=(".vimrc" ".profile" ".tmux.conf")
 dir="${HOME}/dotfiles"
 
 for dotfile in "${dotfiles[@]}";do
-    # ln -sf "${HOME}/${dotfile}" "${dir}"
-    echo "${HOME}/${dotfile}" "${dir}"
+    ln -sf "${dir}/${dotfile}" "${HOME}/${dotfile}"
+    echo "${dir}/${dotfile}" "${HOME}/${dotfile}"
 done

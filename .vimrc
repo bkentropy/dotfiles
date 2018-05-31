@@ -1,12 +1,9 @@
-" Invoke pathogen
-execute pathogen#infect()
-
 " no need to be compatible
 set nocompatible
 
 " Toggling copen cclose
 nnoremap <F8> :cclose<cr>
-"
+
 " Toggling spell check
 nnoremap \sp :call SpellCheckToggle()<cr>
 let g:spellcheck_is_open = 1
@@ -43,11 +40,7 @@ noremap gV `[v`]
 " Colorscheme settings
 "let base16colorspace=256 " Access colors present in 256 colorspace
 set t_Co=256 " 256 color mode
-"set background=dark
-if has('gui_running')
-    colorscheme monokai
-endif
-colorscheme molokai
+colorscheme ron
 
 " Case insensitivy
 set ignorecase
@@ -83,14 +76,6 @@ set ignorecase smartcase
 " Make airline work without needing NERDTree active
 set laststatus=2
 
-" Show spaces and tabs
-set listchars=tab:»·,trail:·,space:·
-" Toggle chars on and off
-nnoremap <F6> :set list!<CR>
-
-" Uncomment this to have \ be the paredit leader, at the moment it is ,
-" let g:paredit_leader = '\'
-
 " Enable mouse use in all modes
 set mouse+=a
 " Allows mouse dragging with tmux (for vim splits)
@@ -106,10 +91,6 @@ let mapleader="\<Space>"
 
 " Display all matching files when we tab complete, I like this
 set wildmenu
-
-let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
-let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 
 " System clipboard copy / cut / paste
 vmap <Leader>y "+y
@@ -147,20 +128,16 @@ set path+=**
 set wildmenu
 
 " These are modifications to make netrc nicer to use
-let g:netrw_banner=0        " disable annoying banner
-let g:netrw_browse_split=4  " open in prior window
-let g:netrw_altv=1          " open splits to the right
-let g:netrw_liststyle=3     " tree view
-let g:netrw_list_hide=netrw_gitignore#Hide()
-let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
+" let g:netrw_banner=0        " disable annoying banner
+" let g:netrw_browse_split=4  " open in prior window
+" let g:netrw_altv=1          " open splits to the right
+" let g:netrw_liststyle=3     " tree view
+" let g:netrw_list_hide=netrw_gitignore#Hide()
+" let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 " How cool is gn, it will set the selected directory to the root
 " Also s will sort-by different things (like showing dot files)
 
 set wildignore+=vendor,pkg,bin,Applications,Library,Music,Pictures,Public,node_modules,build,logs,target,out,tmp
-
-"unmap <C-t>
-map <C-t> <Nop>
-map <C-t> :CommandT<CR>
 
 " Indent - ing
 set smartindent
@@ -173,9 +150,6 @@ imap <C-e> <esc>$a
 imap <C-a> <esc>^i
 
 autocmd FileType clojure setlocal shiftwidth=2 tabstop=2
-
-" Matches HTML tags! cool!
-packadd! matchit
 
 nnoremap <C-w><C-t> :tabe<CR>
 
@@ -195,9 +169,9 @@ nnoremap <leader>h gT
 set iskeyword+=-
 
 " Put all the backups & swap in one place
-set backup
-set backupdir=~/.vim/backup
-set directory=~/.vim/tmp
+" set backup
+" set backupdir=~/.vim/backup
+" set directory=~/.vim/tmp
 
 " Kevin suggested this
 set sessionoptions-=options
@@ -232,8 +206,6 @@ nnoremap <Leader>2 2gt
 nnoremap <Leader>3 3gt
 nnoremap <Leader>4 4gt
 nnoremap <Leader>5 5gt
-
-set shortmess+=c
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
