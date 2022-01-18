@@ -1,0 +1,99 @@
+[
+	{
+		"key": "ctrl+k",
+		"command": "workbench.action.focusActiveEditorGroup",
+		"when": "terminalFocus"
+	},
+	{
+		"key": "ctrl+shift+t",
+		"command": "workbench.action.showAllSymbols"
+	},
+	{
+		"key": "ctrl+t",
+		"command": "-workbench.action.showAllSymbols"
+	},
+	{
+		"key": "ctrl+alt+t",
+		"command": "extension.vim_ctrl+t",
+		"when": "editorTextFocus && vim.active && vim.use<C-t> && !inDebugRepl"
+	},
+	{
+		"key": "ctrl+t",
+		"command": "-extension.vim_ctrl+t",
+		"when": "editorTextFocus && vim.active && vim.use<C-t> && !inDebugRepl"
+	},
+	{
+		"key": "ctrl+t",
+		"command": "workbench.action.terminal.focus"
+	},
+	{
+		"key": "alt+p",
+		"command": "workbench.action.terminal.scrollToPreviousCommand"
+	},
+	{
+		"key": "alt+n",
+		"command": "workbench.action.terminal.scrollToNextCommand"
+	},
+	{
+		"key": "ctrl+s",
+		"command": "workbench.action.terminal.focusFindWidget",
+		"when": "terminalFocus"
+	},
+	{
+		"key": "ctrl+f",
+		"command": "-workbench.action.terminal.focusFindWidget",
+		"when": "terminalFocus"
+	},
+	{
+		"key": "ctrl+e",
+		"command": "-workbench.action.quickOpen"
+	},
+	{
+		"key": "ctrl+p",
+		"command": "workbench.action.quickOpen",
+		"when": "!terminalFocus"
+	},
+	{
+		"key": "ctrl+p",
+		"command": "-workbench.action.quickOpen"
+	},
+	{
+		"key": "ctrl+g",
+		"command": "editor.action.triggerSuggest",
+		"when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
+	},
+	{
+		"key": "ctrl+space",
+		"command": "-editor.action.triggerSuggest",
+		"when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
+	},
+	{
+		"key": "ctrl+alt+f",
+		"command": "workbench.action.terminal.focusFind",
+		"when": "terminalFindFocused || terminalFocus"
+	},
+	{
+		"key": "ctrl+f",
+		"command": "-workbench.action.terminal.focusFind",
+		"when": "terminalFindFocused || terminalFocus"
+	},
+	{
+		"key": "ctrl+q",
+		"command": "workbench.action.quickOpenView",
+		"when": "!terminalFocus"
+	},
+	{
+		"key": "ctrl+q",
+		"command": "-workbench.action.quickOpenView"
+	},
+	{
+		"key": "ctrl+alt+f",
+		"command": "workbench.action.terminal.focusFind",
+		"when": "terminalFindFocused && terminalProcessSupported || terminalFocus && terminalProcessSupported"
+	},
+	{
+		"key": "ctrl+f",
+		"command": "-workbench.action.terminal.focusFind",
+		"when": "terminalFindFocused && terminalProcessSupported || terminalFocus && terminalProcessSupported"
+	}
+]
