@@ -40,7 +40,7 @@ noremap gV `[v`]
 " Colorscheme settings
 "let base16colorspace=256 " Access colors present in 256 colorspace
 set t_Co=256 " 256 color mode
-colorscheme ron
+"colorscheme ron
 
 " Case insensitivy
 set ignorecase
@@ -77,7 +77,7 @@ set ignorecase smartcase
 set laststatus=2
 
 " Enable mouse use in all modes
-set mouse+=a
+"set mouse+=a
 " Allows mouse dragging with tmux (for vim splits)
 if &term =~ '^screen'
     " tmux knows the extended mouse mode

@@ -1,0 +1,102 @@
+# To get the defaults, command: tmux list-keys
+# Trying a different prefix
+unbind-key C-b
+set -g prefix C-Space
+bind-key Space send-prefix
+# Better copy mode
+bind Space copy-mode
+bind C-Space copy-mode
+
+# Rename your terminals
+set -g set-titles on
+set -g set-titles-string '#(whoami)::#h::#(curl ipecho.net/plain;echo)' #TODO what's the #h do? why doesn't the other thing work sometimes hmm
+# Allow renumbering of windows
+set-option -g renumber-windows on
+
+# Allows copying to clipboard
+bind -t vi-copy y copy-pipe 'pbcopy -in -selection clipboard'
+#bind -t vi-copy y copy-pipe 'pbcopy -in -selection clipboard' -x
+unbind -t vi-copy MouseDragEnd1Pane
+
+# Longer q time display
+set -g display-panes-time 2000
+
+# Join windows: <prefix> s, <prefix> j, break-pane
+bind-key J command-prompt -p "Join pane from:"  "join-pane -s '%%'"
+bind-key S command-prompt -p "Send pane to:"  "join-pane -t '%%'"
+bind-key B command-prompt -p "Break pane to seperate window. Press enter to continue." "break-pane"
+
+# Window renaming off
+set-window-option -g allow-rename off
+
+# Set default path
+#set-option default-path /Users/briankustra
+bind 'k' split-window -h -c '#{pane_current_path}'  # Split panes horizontal
+bind 'j' split-window -v -c '#{pane_current_path}'  # Split panes vertically
+
+# Set base-index as instead of 0
+set-option -g base-index 1
+setw -g pane-base-index 1
+
+# Resize panes with <prefix> <esc> <direction> you can repeat without prefix but must hit <esc> <direction> in series
+bind-key -r M-Up       resize-pane -U 5
+bind-key -r M-Down     resize-pane -D 5
+bind-key -r M-Left     resize-pane -L 5
+bind-key -r M-Right    resize-pane -R 5
+set-option repeat-time 750
+
+# Set vim and mouse modes, along with 256 color
+setw -g mode-keys vi
+set -g default-terminal "screen-256color"
+set -g mouse on
+
+# Prefix + r to refresh config
+bind r source-file ~/.tmux.conf \; \
+	display-message "Source-file reloaded"
+
+# Shift arrow to switch windows #ehhhh this is kinda silly, at least sessions not windows
+bind -r l next-window
+bind -r h previous-window
+
+# My attemp at restarting the server with one click
+# bind v C-c \; C-p \; <CR>
+
+# Status bar customization
+#set -g status-utf8 on
+set -g status-bg colour023
+set -g status-fg white
+set -g status-interval 5
+set -g status-left-length 90
+set -g status-right-length 60
+set -g status-left "#[fg=Green]#(whoami)#[fg=white]::#[fg=blue]#[fg=yellow]#(ifconfig en4 | grep 'inet ' | awk '{print $2}')#[fg=black]|"
+# ##[fg=yellow]#(curl ipecho.net/plain;echo) "
+set -g status-justify left
+set -g status-right "#[fg=Cyan]#S #[fg=white]%a %d %b %R"
+
+# ----------------------
+# set some pretty colors
+# ----------------------
+# set pane colors - hilight the active pane
+set-option -g pane-border-fg red #base02colour055
+set-option -g pane-active-border-fg cyan #base01colour24
+
+# colorize messages in the command line
+set-option -g message-bg black #base02
+set-option -g message-fg brightred #orange
+
+# smart pane switching with awareness of vim splits
+bind -n C-h run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-h) || tmux select-pane -L"
+bind -n C-j run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-j) || tmux select-pane -D"
+bind -n C-k run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-k) || tmux select-pane -U"
+bind -n C-l run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-l) || tmux select-pane -R"
+bind -n C-\ run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys 'C-\\') || tmux select-pane -l"
+
+#set -g @plugin "tmux-plugins/tpm"
+#set -g @plugin 'tmux-plugins/tmux-resurrect'
+#set -g @plugin 'tmux-plugins/tmux-continuum'
+#
+#set -g @continuum-restore 'on'
+#set -g @continuum-boot 'on'
+#set -g @continuum-boot-options "iterm"
+# Initialize TMUX plugin manager (keep this line at the bottom of tmux.conf)
+# run "~/.tmux/plugins/tpm/tpm"
