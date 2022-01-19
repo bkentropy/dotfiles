@@ -1,5 +1,5 @@
 export EDITOR="vim"
-export HOMEBREW_CASK_OPTS="--caskroom=/opt/homebrew-cask/Caskroom"
+# export HOMEBREW_CASK_OPTS="--caskroom=/opt/homebrew-cask/Caskroom"
 
 ### Docker tricks
 alias dco="docker-compose"
