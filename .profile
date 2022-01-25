@@ -1,8 +1,10 @@
-export EDITOR="vim"
+export EDITOR="nvim"
 # export HOMEBREW_CASK_OPTS="--caskroom=/opt/homebrew-cask/Caskroom"
+#echo "$(brew --prefix)/anaconda3/bin"
+# export PATH="$(brew --prefix)/anaconda3/bin:/usr/local/anaconda3/bin:$PATH"
 
 ### Docker tricks
-alias dco="docker-compose"
+alias dc="docker-compose"
 alias dps="docker ps"
 alias dpsa="docker ps -a" # shows all docker process
 alias drm="docker rm -f" # drm `allids` will remove all docker processes
@@ -15,11 +17,11 @@ alias dprune="drmi \$(di -q -f dangling=true)"
 alias dni="docker network inspect"
 
 ### Config Files
-alias prof="vim ~/.profile"
+alias prof="nvim ~/.profile"
 alias reprof="source ~/.profile"
-alias tconfig="vim ~/.tmux.conf"
+alias tconfig="nvim ~/.tmux.conf"
 alias vimvim="vim ~/.vimrc"
-alias windows="vim ~/.hammerspoon/init.lua"
+alias windows="nvim ~/.hammerspoon/init.lua"
 
 ### Navigation ###
 alias bund="cd ~/.vim/bundle"

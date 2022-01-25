@@ -1,5 +1,5 @@
 -- Requires, this could easily add pretty advanced packages
-inspect = require 'inspect'
+-- inspect = require 'inspect'
 
 -- Current application hotkeys set
 -- 'G', openchrome
@@ -263,7 +263,7 @@ local function openterminal()
 end
 
 local function openatom()
-    hs.application.launchOrFocus("/Applications/Atom.app")
+    hs.application.launchOrFocus("Visual Studio Code")
 end
 
 local function opentortoise()
