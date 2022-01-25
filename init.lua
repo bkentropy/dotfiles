@@ -16,7 +16,7 @@
 -- 'P', openpgadmin
 -- 'O', openmail
 -- 'N', openfinder
--- 'L', openlibre
+-- 'L', openlaunchpad
 -- 'K', openkitematic
 
 local grid = require "hs.grid"
@@ -302,8 +302,8 @@ local function openfinder()
     hs.application.launchOrFocus("Finder")
 end
 
-local function openlibre()
-    hs.application.launchOrFocus("LibreOffice")
+local function openlaunchpad()
+    hs.application.launchOrFocus("Launchpad")
 end
 
 local function openkitematic()
@@ -311,6 +311,11 @@ local function openkitematic()
     hs.application.launchOrFocus("Docker")
 end
 
+local function opencalendar()
+    hs.application.launchOrFocus("Calendar")
+end
+
+hotkey.bind(easykey, 'C', opencalendar)
 hotkey.bind(easykey, 'G', openbrowser)
 hotkey.bind(easykey, 'R', openrdp)
 hotkey.bind(easykey, 'I', openemail)
@@ -325,7 +330,7 @@ hotkey.bind(easykey, 'J', openchatprogram)
 hotkey.bind(easykey, 'P', openpgadmin)
 hotkey.bind(easykey, 'O', openmail)
 hotkey.bind(easykey, 'N', openfinder)
-hotkey.bind(easykey, 'L', openlibre)
+hotkey.bind(easykey, 'L', openlaunchpad)
 hotkey.bind(easykey, 'K', openkitematic)
 
 --------------------------------------------------------------------------------
