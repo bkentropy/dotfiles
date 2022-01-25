@@ -2,17 +2,17 @@
 -- inspect = require 'inspect'
 
 -- Current application hotkeys set
--- 'G', openchrome
+-- 'G', openbrowser
 -- 'R', openrdp
--- 'I', openireport
+-- 'I', openemail
 -- 'Q', openqtcreator
 -- 'V', openvim
 -- 'D', openterminal
 -- 'E', find something new for openatom
 -- 'E', opengimp
 -- 'H', opentortoise
--- 'M', opensonos
--- 'J', openhipchat
+-- 'M', openmusicplayer
+-- 'J', openchatprogram
 -- 'P', openpgadmin
 -- 'O', openmail
 -- 'N', openfinder
@@ -254,8 +254,8 @@ local function openrdp()
     hs.application.launchOrFocus("Microsoft Remote Desktop")
 end
 
-local function openchrome()
-    hs.application.launchOrFocus("Google Chrome")
+local function openbrowser()
+    hs.application.launchOrFocus("Firefox")
 end
 
 local function openterminal()
@@ -270,12 +270,12 @@ local function opentortoise()
     hs.application.launchOrFocus("TortoiseHg")
 end
 
-local function opensonos()
-    hs.application.launchOrFocus("Sonos")
+local function openmusicplayer()
+    hs.application.launchOrFocus("Spotify")
 end
 
-local function openhipchat()
-    hs.application.launchOrFocus("HipChat")
+local function openchatprogram()
+    hs.application.launchOrFocus("Slack")
 end
 
 local function openvim()
@@ -286,8 +286,8 @@ local function openqtcreator()
     hs.application.launchOrFocus("Qt Creator")
 end
 
-local function openireport()
-    hs.application.launchOrFocus("iReport")
+local function openemail()
+    hs.application.launchOrFocus("Mail")
 end
 
 local function openpgadmin()
@@ -308,20 +308,20 @@ end
 
 local function openkitematic()
     -- hs.application.launchOrFocus("Kitematic (Beta)")
-    hs.application.launchOrFocus("DockStation")
+    hs.application.launchOrFocus("Docker")
 end
 
-hotkey.bind(easykey, 'G', openchrome)
+hotkey.bind(easykey, 'G', openbrowser)
 hotkey.bind(easykey, 'R', openrdp)
-hotkey.bind(easykey, 'I', openireport)
+hotkey.bind(easykey, 'I', openemail)
 hotkey.bind(easykey, 'Q', openqtcreator)
 hotkey.bind(easykey, 'V', openvim) --macvim
 hotkey.bind(easykey, 'D', openterminal)
 hotkey.bind(easykey, 'E', openatom)
 hotkey.bind(easykey, 'U', opengimp)
 hotkey.bind(easykey, 'H', opentortoise)
-hotkey.bind(easykey, 'M', opensonos)
-hotkey.bind(easykey, 'J', openhipchat)
+hotkey.bind(easykey, 'M', openmusicplayer)
+hotkey.bind(easykey, 'J', openchatprogram)
 hotkey.bind(easykey, 'P', openpgadmin)
 hotkey.bind(easykey, 'O', openmail)
 hotkey.bind(easykey, 'N', openfinder)
