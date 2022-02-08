@@ -3,6 +3,9 @@ export EDITOR="nvim"
 #echo "$(brew --prefix)/anaconda3/bin"
 # export PATH="$(brew --prefix)/anaconda3/bin:/usr/local/anaconda3/bin:$PATH"
 
+# Apparently you must run this (once) on newer Macs for PressAndHold functionality
+# defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+
 ### Docker tricks
 alias dc="docker-compose"
 alias dps="docker ps"

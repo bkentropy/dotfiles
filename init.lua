@@ -26,6 +26,7 @@ local hotkey = require "hs.hotkey"
 --------------------------------------------------------------------------------
 local cmd_alt = {"cmd", "alt"}
 local cmd_shift = {"cmd", "shift"}
+local ctrl_alt = {"ctrl", "alt"}
 local hyper = {"cmd", "alt", "ctrl"}
 local easykey = {"cmd", "ctrl"}
 local yay = "ᕙ(⇀‸↼‶)ᕗ reloaded"
@@ -307,7 +308,6 @@ local function openlaunchpad()
 end
 
 local function openkitematic()
-    -- hs.application.launchOrFocus("Kitematic (Beta)")
     hs.application.launchOrFocus("Docker")
 end
 
@@ -315,11 +315,21 @@ local function opencalendar()
     hs.application.launchOrFocus("Calendar")
 end
 
+local function openzoom()
+    hs.application.launchOrFocus("zoom.us")
+end
+
+local function opennavigator()
+    hs.application.launchOrFocus("Anaconda-Navigator")
+end
+
+hotkey.bind(easykey, 'N', opennavigator)
+hotkey.bind(easykey, 'Z', openzoom)
 hotkey.bind(easykey, 'C', opencalendar)
 hotkey.bind(easykey, 'G', openbrowser)
 hotkey.bind(easykey, 'R', openrdp)
 hotkey.bind(easykey, 'I', openemail)
-hotkey.bind(easykey, 'Q', openqtcreator)
+-- hotkey.bind(easykey, 'Q', openqtcreator)
 hotkey.bind(easykey, 'V', openvim) --macvim
 hotkey.bind(easykey, 'D', openterminal)
 hotkey.bind(easykey, 'E', openatom)
@@ -329,7 +339,7 @@ hotkey.bind(easykey, 'M', openmusicplayer)
 hotkey.bind(easykey, 'J', openchatprogram)
 hotkey.bind(easykey, 'P', openpgadmin)
 hotkey.bind(easykey, 'O', openmail)
-hotkey.bind(easykey, 'N', openfinder)
+-- hotkey.bind(easykey, 'N', openfinder)
 hotkey.bind(easykey, 'L', openlaunchpad)
 hotkey.bind(easykey, 'K', openkitematic)
 
@@ -417,3 +427,11 @@ hotkey.bind(hyper, "L", function()
 end)
 
 hs.alert(yay)
+
+--------------------------------------------------------------------------------
+-- Open these config settings
+--------------------------------------------------------------------------------
+hotkey.bind(hyper, "v", function()
+    hs.execute("code ~/src/dotfiles", true)
+  end
+)
