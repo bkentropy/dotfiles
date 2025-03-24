@@ -15,12 +15,16 @@
 -- 'J', openchatprogram
 -- 'P', openpgadmin
 -- 'O', openmail
--- 'N', openfinder
--- 'L', openlaunchpad
--- 'K', openkitematic
+-- 'N', opennotes
+-- 'L', 
+-- 'K', openk
+-- 'F', finder
 
 local grid = require "hs.grid"
 local hotkey = require "hs.hotkey"
+if hs.fs.attributes("~/.hammerspoon/work.lua")
+    then local work = require "work"
+end
 --------------------------------------------------------------------------------
 -- CONSTANTS
 --------------------------------------------------------------------------------
@@ -31,9 +35,6 @@ local hyper = {"cmd", "alt", "ctrl"}
 local easykey = {"cmd", "ctrl"}
 local yay = "ᕙ(⇀‸↼‶)ᕗ reloaded"
 
-
-hotkey.bind(cmd_alt, 'N', grid.pushWindowNextScreen)
-hotkey.bind(cmd_alt, 'P', grid.pushWindowPrevScreen)
 
 --------------------------------------------------------------------------------
 -- RELOAD
@@ -291,24 +292,35 @@ local function openemail()
     hs.application.launchOrFocus("Mail")
 end
 
-local function openpgadmin()
-    hs.application.launchOrFocus("pgAdmin 4")
-end
+-- local function openpgadmin()
+--     hs.application.launchOrFocus("pgAdmin 4")
+-- end
 
 local function openmail()
     hs.application.launchOrFocus("Mail")
 end
 
-local function openfinder()
+local function opennotes()
+    hs.application.launchOrFocus("Obsidian")
+end
+
+local function openLLM()
+    -- hs.application.launchOrFocus("AI-Navigator")
+    hs.application.launchOrFocus("ChatGPT")
+end
+
+local function openlibrecalc()
+    hs.application.launchOrFocus("LibreOffice")
+end
+
+local function openk()
+    -- hs.application.launchOrFocus("Docker")
+    hs.application.launchOrFocus("MongoDB Compass")
+end
+
+local function openf()
+    -- hs.application.launchOrFocus("Docker")
     hs.application.launchOrFocus("Finder")
-end
-
-local function openlaunchpad()
-    hs.application.launchOrFocus("Launchpad")
-end
-
-local function openkitematic()
-    hs.application.launchOrFocus("Docker")
 end
 
 local function opencalendar()
@@ -319,11 +331,29 @@ local function openzoom()
     hs.application.launchOrFocus("zoom.us")
 end
 
-local function opennavigator()
-    hs.application.launchOrFocus("Anaconda-Navigator")
+local function openevernote()
+    -- hs.application.launchOrFocus("Evernote")
+    hs.application.launchOrFocus("Obsidian")
 end
 
-hotkey.bind(easykey, 'N', opennavigator)
+local function openpostman()
+    hs.application.launchOrFocus("Postman")
+end
+
+-- local function opennavigator()
+--     -- hs.application.launchOrFocus("Anaconda-Navigator")
+--     hs.application.find('Anaconda Navigator'):activate()
+-- end
+
+local function opensourcetree()
+    hs.application.launchOrFocus("Sourcetree")
+end
+
+hotkey.bind(easykey, 'H', opensourcetree)
+-- hotkey.bind("", 'F8', openevernote)
+hotkey.bind(easykey, '8', openevernote)
+hotkey.bind(easykey, 'P', openpostman)
+-- hotkey.bind(easykey, 'N', opennavigator)
 hotkey.bind(easykey, 'Z', openzoom)
 hotkey.bind(easykey, 'C', opencalendar)
 hotkey.bind(easykey, 'G', openbrowser)
@@ -337,11 +367,13 @@ hotkey.bind(easykey, 'U', opengimp)
 hotkey.bind(easykey, 'H', opentortoise)
 hotkey.bind(easykey, 'M', openmusicplayer)
 hotkey.bind(easykey, 'J', openchatprogram)
-hotkey.bind(easykey, 'P', openpgadmin)
 hotkey.bind(easykey, 'O', openmail)
--- hotkey.bind(easykey, 'N', openfinder)
-hotkey.bind(easykey, 'L', openlaunchpad)
-hotkey.bind(easykey, 'K', openkitematic)
+hotkey.bind(easykey, 'N', opennotes)
+hotkey.bind(easykey, 'L', openLLM)
+hotkey.bind(easykey, 'K', openk)
+
+-- Do nothing...
+hotkey.bind(easykey, 'F', openf)
 
 --------------------------------------------------------------------------------
 -- USEFUL TIDBITS IVE LEARNED ABOUT LUA / HS
@@ -363,6 +395,11 @@ function startRamenTimer()
     hs.alert("Ramen timer started!")
 end
 
+function randomFE()
+    local reviewers = { 'Elize', 'Seba', 'Zandra'}
+    hs.alert(reviewers[math.random(#reviewers)])
+end
+
 function randomReviewer()
     local reviewers = { 'John', 'Kevin', 'Chris', 'Ryan', 'Kendall', 'Jonathan' }
     hs.alert(reviewers[math.random(#reviewers)])
@@ -370,6 +407,7 @@ end
 
 hs.urlevent.bind("ramentime",startRamenTimer)
 hs.urlevent.bind("who", randomReviewer)
+hs.urlevent.bind("fe", randomFE)
 
 
 ----------------------- Addition window movements

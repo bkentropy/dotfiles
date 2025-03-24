@@ -1,0 +1,10 @@
+{
+    "security.workspace.trust.untrustedFiles": "open",
+    "vim.easymotion": true,
+    "jupyter.jupyterServerType": "local",
+    "terminal.integrated.inheritEnv": false,
+    "python.terminal.activateEnvInCurrentTerminal": true,
+    "python.analysis.extraPaths": [
+        "${workspaceFolder}/../../shared/python"
+    ]
+}

@@ -1,3 +1,26 @@
+" Vundle stuff
+filetype off                   " required
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.config/nvim/bundle/Vundle.vim
+call vundle#begin()            " required
+Plugin 'VundleVim/Vundle.vim'  " required
+
+" ===================
+" my plugins here
+" ===================
+
+Plugin 'dracula/vim'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'altercation/vim-colors-solarized'
+
+
+" ===================
+" end of plugins
+" ===================
+call vundle#end()               " required
+filetype plugin indent on       " required
+
+" Custom Stuff
 " no need to be compatible
 set nocompatible
 
@@ -39,8 +62,9 @@ noremap gV `[v`]
 
 " Colorscheme settings
 "let base16colorspace=256 " Access colors present in 256 colorspace
-set t_Co=256 " 256 color mode
+"set t_Co=256 " 256 color mode
 "colorscheme ron
+colorscheme solarized
 
 " Case insensitivy
 set ignorecase
@@ -68,6 +92,9 @@ set smarttab
 " Auto Commands:
 " Remove any trailing whitespace that is in the file
 autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+" set nonumber
+set nonumber
+
 
 " Incremental searching with smartcase
 set incsearch
@@ -81,10 +108,10 @@ set laststatus=2
 " Allows mouse dragging with tmux (for vim splits)
 if &term =~ '^screen'
     " tmux knows the extended mouse mode
-    set ttymouse=xterm2
+    "set ttymouse=xterm2
 endif
 " This is the setting that allows me to select past column 222
-set ttymouse=sgr
+" set ttymouse=sgr
 
 " Set leader
 let mapleader="\<Space>"
@@ -94,6 +121,7 @@ set wildmenu
 
 " System clipboard copy / cut / paste
 vmap <Leader>y "+y
+"vmap <Leader>y "*y
 vmap <Leader>d "+d
 nmap <Leader>p "+p
 nmap <Leader>P "+P
