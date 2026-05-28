@@ -2,23 +2,23 @@
 -- inspect = require 'inspect'
 
 -- Current application hotkeys set
--- 'G', openbrowser
--- 'R', openrdp
--- 'I', openemail
--- 'Q', openqtcreator
--- 'V', openvim
+-- 'B', open_database_browser
 -- 'D', openterminal
--- 'E', find something new for openatom
 -- 'E', opengimp
--- 'H', opentortoise
--- 'M', openmusicplayer
--- 'J', openchatprogram
--- 'P', openpgadmin
--- 'O', openmail
--- 'N', opennotes
--- 'L', 
--- 'K', openk
 -- 'F', finder
+-- 'G', openbrowser
+-- 'H', openchrome
+-- 'I', openemail
+-- 'J', openchatprogram
+-- 'K', openk
+-- 'L',
+-- 'M', openmusicplayer
+-- 'N', opennotes
+-- 'O', openmail
+-- 'P', openpgadmin
+-- 'Q', openqtcreator
+-- 'R', openrdp
+-- 'V', openvim
 
 local grid = require "hs.grid"
 local hotkey = require "hs.hotkey"
@@ -260,16 +260,21 @@ local function openbrowser()
     hs.application.launchOrFocus("Firefox")
 end
 
+local function open_database_browser()
+    hs.application.launchOrFocus("DBeaver")
+end
+
 local function openterminal()
     hs.application.launchOrFocus("iTerm")
 end
 
-local function openatom()
-    hs.application.launchOrFocus("Visual Studio Code")
+local function openeditor()
+    -- hs.application.launchOrFocus("Visual Studio Code")
+    hs.application.launchOrFocus("Cursor")
 end
 
-local function opentortoise()
-    hs.application.launchOrFocus("TortoiseHg")
+local function openchrome()
+    hs.application.launchOrFocus("Google Chrome")
 end
 
 local function openmusicplayer()
@@ -281,7 +286,8 @@ local function openchatprogram()
 end
 
 local function openvim()
-    hs.application.launchOrFocus("MacVim")
+    -- hs.application.launchOrFocus("MacVim")
+    hs.application.launchOrFocus("Elasticvue")
 end
 
 local function openqtcreator()
@@ -313,10 +319,10 @@ local function openlibrecalc()
     hs.application.launchOrFocus("LibreOffice")
 end
 
-local function openk()
-    -- hs.application.launchOrFocus("Docker")
-    hs.application.launchOrFocus("MongoDB Compass")
-end
+-- local function openk()
+--     -- hs.application.launchOrFocus("Docker")
+--     hs.application.launchOrFocus("MongoDB Compass")
+-- end
 
 local function openf()
     -- hs.application.launchOrFocus("Docker")
@@ -349,28 +355,25 @@ local function opensourcetree()
     hs.application.launchOrFocus("Sourcetree")
 end
 
-hotkey.bind(easykey, 'H', opensourcetree)
--- hotkey.bind("", 'F8', openevernote)
 hotkey.bind(easykey, '8', openevernote)
-hotkey.bind(easykey, 'P', openpostman)
--- hotkey.bind(easykey, 'N', opennavigator)
-hotkey.bind(easykey, 'Z', openzoom)
+hotkey.bind(easykey, 'B', open_database_browser)
 hotkey.bind(easykey, 'C', opencalendar)
-hotkey.bind(easykey, 'G', openbrowser)
-hotkey.bind(easykey, 'R', openrdp)
-hotkey.bind(easykey, 'I', openemail)
--- hotkey.bind(easykey, 'Q', openqtcreator)
-hotkey.bind(easykey, 'V', openvim) --macvim
 hotkey.bind(easykey, 'D', openterminal)
-hotkey.bind(easykey, 'E', openatom)
-hotkey.bind(easykey, 'U', opengimp)
-hotkey.bind(easykey, 'H', opentortoise)
-hotkey.bind(easykey, 'M', openmusicplayer)
+hotkey.bind(easykey, 'E', openeditor)
+hotkey.bind(easykey, 'G', openbrowser)
+hotkey.bind(easykey, 'H', openchrome)
+hotkey.bind(easykey, 'I', openemail)
 hotkey.bind(easykey, 'J', openchatprogram)
-hotkey.bind(easykey, 'O', openmail)
-hotkey.bind(easykey, 'N', opennotes)
+-- hotkey.bind(easykey, 'K', openk)
 hotkey.bind(easykey, 'L', openLLM)
-hotkey.bind(easykey, 'K', openk)
+hotkey.bind(easykey, 'M', openmusicplayer)
+hotkey.bind(easykey, 'N', opennotes)
+hotkey.bind(easykey, 'O', openmail)
+hotkey.bind(easykey, 'P', openpostman)
+hotkey.bind(easykey, 'R', openrdp)
+hotkey.bind(easykey, 'U', opengimp)
+hotkey.bind(easykey, 'V', openvim) --macvim
+hotkey.bind(easykey, 'Z', openzoom)
 
 -- Do nothing...
 hotkey.bind(easykey, 'F', openf)
